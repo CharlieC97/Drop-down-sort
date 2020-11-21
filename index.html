@@ -1,276 +1,695 @@
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script>
-let selectElement = document.getElementById("warrenty_select_dealer");
-function sortSelectOptions(selectElement) {
-	var options = $(selectElement + " option");
-
-	options.sort(function(a,b) {
-		if (a.text.toUpperCase() > b.text.toUpperCase()) return 1;
-		else if (a.text.toUpperCase() < b.text.toUpperCase()) return -1;
-		else return 0;
-	});
-
-	$(selectElement).empty().append( options );
-}
-
-</script> -->
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
-<script>
-if (jQuery) {
-  alert("jquery is loaded");
-} else {
-  alert("Not loaded");
-}
-</script>
+    <script language="JavaScript" type="text/javascript">
+      window.onload = function sortList() {
+        var lb = document.getElementById("warrenty_select_dealer");
+        dealerList = new Array();
 
-<script>
-let selectElement = document.querySelector("#warrenty_select_dealer");    
-    var options = $(selectElement + " option").toArray();
-options.sort(function(a, b) {
-  let aa = a.textContent;
-  let bb = b.textContent;
-  if (aa.toUpperCase() > bb.toUpperCase()) return 1;
-  else if (aa.toUpperCase() < bb.toUpperCase()) return -1;
-  else return 0;
-});
-$(selectElement).empty().append( options );
-</script>
+        for (i = 0; i < lb.length; i++) {
+          dealerList[i] = lb.options[i].text;
+        }
 
-</head>
-<body>
-  <select class="form-control" id="warrenty_select_dealer" data-tracking="false" aria-invalid="false">
-    <option value="" selected="" disabled="" hidden="" class="hide-option">Choose from list</option>
-        <option value="Online1UK" data-region="0" class="hide-option">Online -  UK</option>
-        <option value="292189" data-region="1" class="hide-option">Keens Furniture - BT5 4GS Belfast</option>
-        <option value="297137" data-region="2" class="">Haskins Furniture - BA4 5AX Shepton Mallet</option>
-        <option value="295036" data-region="1" class="hide-option">CFC Interiors Ltd - BT80 8HT Cookstown  Co Tyrone</option>
-        <option value="297165" data-region="2" class="">Julian Foye - TR1 1SB Truro</option>
-        <option value="294217" data-region="2" class="">David Phipp House Furnishers - BH22 9AL Ferndown</option>
-        <option value="295019" data-region="1" class="hide-option">CFC Interiors Ltd - BT47 3PA Londonderry</option>
-        <option value="297166" data-region="2" class="">Julian Foye - PL24 6DA Wadebridge</option>
-        <option value="294226" data-region="2" class="">T.R. Hayes Limited - BA1 5BX Walcot</option>
-        <option value="292192" data-region="1" class="hide-option">CFC Interiors Ltd - BT37 9UL Newtownabbey</option>
-        <option value="294234" data-region="2" class="">Scope Furnishing - GY3 5XJ Guernsey</option>
-        <option value="298878" data-region="1" class="hide-option">HSL Newtownabbey - BT36 7LS Newtownabbey</option>
-        <option value="294235" data-region="2" class="">Leekes Ltd - SN12 8AG Melksham</option>
-        <option value="291162" data-region="3" class="hide-option">Gillies - AB10 6DA Aberdeen</option>
-        <option value="294237" data-region="2" class="">Charltons - TQ2 5UN Torquay</option>
-        <option value="297167" data-region="2" class="">Julian Foye - TR27 4DY Hayle</option>
-        <option value="298840" data-region="2" class="">HSL Orpington - BR6 0JW Orpington</option>
-        <option value="297177" data-region="2" class="">Woods (Dorchester) Ltd. - DT1 1HN Dorchester</option>
-        <option value="291219" data-region="3" class="hide-option">Archibalds Furniture - AB10 6LQ Aberdeen</option>
-        <option value="297178" data-region="2" class="">Southons - SP1 2DE Salisbury</option>
-        <option value="291220" data-region="3" class="hide-option">Sterling Furniture - AB23 8EF Aberdeen</option>
-        <option value="297187" data-region="2" class="">Manor Furniture Centre Ltd - SN2 0QE Swindon</option>
-        <option value="291172" data-region="3" class="hide-option">Sterling Furniture - FK13 6NS Tillicoutry</option>
-        <option value="297207" data-region="2" class="">S H Skidmore &amp; Sons Limited - BS22 6HE Weston Super Mare</option>
-        <option value="291252" data-region="3" class="hide-option">Gillies - IV1 1NA Inverness</option>
-        <option value="294120" data-region="2" class="">Collingwood Batchellor Ltd - GU27 2LA Haslemere</option>
-        <option value="292239" data-region="2" class="">Reynolds Furniture Store - PO21 1RR Bognor Regis</option>
-        <option value="292335" data-region="2" class="">Fishpools Limited - EN8 7AL Waltham Cross</option>
-        <option value="291222" data-region="3" class="hide-option">Sterling Furniture - IV3 8EX Inverness</option>
-        <option value="293229" data-region="2" class="">Back in Action - HP6 6AA Amersham</option>
-        <option value="291266" data-region="3" class="hide-option">Muddy Bay - ZE1 0NP Shetland</option>
-        <option value="293243" data-region="2" class="">Back in Action - BS1 5SH Bristol</option>
-        <option value="296028" data-region="2" class="">Gordon Busbridge Ltd. - BN21 3PD Eastbourne</option>
-        <option value="294092" data-region="2" class="">Camp Hopson - RG14 1DN Newbury</option>
-        <option value="294073" data-region="2" class="">Midfurn Furniture - B49 6HW Alcester</option>
-        <option value="293272" data-region="2" class="">Lee Longlands Ltd - OX14 1SD Abingdon</option>
-        <option value="291224" data-region="3" class="hide-option">Sterling Furniture - G71 5PR Uddingston</option>
-        <option value="298860" data-region="2" class="">HSL BRISTOL - BS10 6PZ Westbury On Trym  Bristol</option>
-        <option value="291188" data-region="3" class="hide-option">Forrest Furnishing Ltd - G14 0AL Glasgow</option>
-        <option value="298825" data-region="2" class="">HSL Caterham-on-the-Hill - CR3 5PE Caterham On The Hill</option>
-        <option value="298861" data-region="2" class="">HSL STOCKTON - TS18 2NH Portrack Lane Stockton On Tees</option>
-        <option value="298826" data-region="2" class="">HSL Exeter - EX2 8NW Exeter</option>
-        <option value="291207" data-region="3" class="hide-option">Sterling Furniture - G32 8XG Glasgow</option>
-        <option value="298862" data-region="2" class="">HSL SWINDON - SN3 4NS Hobley Drive Swindon</option>
-        <option value="298835" data-region="2" class="">HSL Tolworth - KT6 7AZ Tolworth</option>
-        <option value="298828" data-region="3" class="hide-option">HSL Glasgow - G13 2TG Glasgow</option>
-        <option value="292253" data-region="2" class="">Glasswells Ltd. - IP33 3TU Bury St Edmunds</option>
-        <option value="298863" data-region="2" class="">HSL CHESTER - CH3 5AF Chester Cheshiire</option>
-        <option value="291177" data-region="3" class="hide-option">Maitlands - AB43 9ER Fraserburgh</option>
-        <option value="296055" data-region="2" class="">Bennett &amp; Brown - DA12 1AS Gravesend</option>
-        <option value="298864" data-region="2" class="">HSL COVENTRY - CV3 2SB Warwickshire Shopping Park Coventry</option>
-        <option value="296102" data-region="2" class="">Barker &amp; Stonehouse Ltd - BN3 7EX Hove</option>
-        <option value="298865" data-region="2" class="">HSL IPSWICH - IP3 8AF Ipswich Suffolk</option>
-        <option value="296121" data-region="2" class="">Back in Action - SL7 2NH Marlow</option>
-        <option value="298821" data-region="2" class="">HSL Bolton - BL1 2LS Bolton</option>
-        <option value="291163" data-region="3" class="hide-option">Gillies - PH1 5JR Perth</option>
-        <option value="298822" data-region="2" class="">HSL Brighton &amp; Hove - BN3 7BA Brighton</option>
-        <option value="298866" data-region="2" class="">HSL LICHFIELD - WS13 6UY Eastern Ave  Lichfield Staff</option>
-        <option value="291178" data-region="3" class="hide-option">Anderson &amp; England - IV30 1QB Elgin</option>
-        <option value="298824" data-region="2" class="">HSL Cheltenham - GL51 9RR Chelteham</option>
-        <option value="291057" data-region="3" class="hide-option">Thomsons World of Furniture - KY11 8PQ Dunfermline</option>
-        <option value="298859" data-region="2" class="">HSL SHREWSBURY - SY1 4NU Arlington Way Shrewsbury</option>
-        <option value="292286" data-region="2" class="">Collingwood Batchellor - RH19 1EJ East Grinstead</option>
-        <option value="291227" data-region="3" class="hide-option">Sterling Furniture - DD2 4SR Dundee</option>
-        <option value="298867" data-region="2" class="">HSL TAUNTON - TA1 5NF Taunton Somerset</option>
-        <option value="291128" data-region="2" class="">Vaseys - CA1 1TF Carlisle</option>
-        <option value="293005" data-region="2" class="">Brentham Furnishers - W5 1RH London</option>
-        <option value="291489" data-region="3" class="hide-option">Gillies - DD5 2AJ Dundee</option>
-        <option value="298869" data-region="2" class="">HSL WELLINGBOROUGH - NN8 2DP Wellingborough Northamptonshire</option>
-        <option value="291190" data-region="2" class="">Barker &amp; Stonehouse Ltd - SW11 3RD London</option>
-        <option value="298870" data-region="2" class="">HSL BATH - BA2 2RX Upper Bloomfield Road  Bath</option>
-        <option value="291109" data-region="3" class="hide-option">Barbours - DG1 2AL Dumfries</option>
-        <option value="298871" data-region="2" class="">HSL BIRMINGHAM - B17 8DJ Edgbaston  Birmingham</option>
-        <option value="293230" data-region="2" class="">Back in Action - W1U 8LT London</option>
-        <option value="298872" data-region="2" class="">HSL DEWSBURY - WF13 2DU Dewsbury</option>
-        <option value="299900" data-region="2" class="">Stressless® Brand Store - W1T 4TF London</option>
-        <option value="291051" data-region="3" class="hide-option">G.O. Fairbairn Ltd. - TD15 1DX Berwick Upon Tweed</option>
-        <option value="293215" data-region="2" class="">Back2 International Ltd - W1U 2RN London</option>
-        <option value="298849" data-region="3" class="hide-option">HSL BATHGATE - EH48 2AG Bathgate  West Lothian</option>
-        <option value="298875" data-region="2" class="">HSL LEEDS - LS20 8LZ White Cross  Guiseley</option>
-        <option value="291098" data-region="3" class="hide-option">Hunter Furnishings - KA8 9DN Ayr</option>
-        <option value="298877" data-region="2" class="">HSL LINCOLN - LN5 8QJ Lincoln</option>
-        <option value="291213" data-region="2" class="">Barkers Furnishing - DL7 8YR Northallerton</option>
-        <option value="298854" data-region="2" class="">HSL NEWCASTLE-UNDER-LYME - ST5 9ED Newcastle Under Lyme</option>
-        <option value="297268" data-region="2" class="">Stowfords - PL21 0SZ Ivybridge</option>
-        <option value="291148" data-region="3" class="hide-option">Richard F Mackay Ltd. - EH11 2SG Edinburgh</option>
-        <option value="292277" data-region="2" class="">Cousins Furniture Stores Ltd - ST5 2BS Newcastle Under Lyme</option>
-        <option value="291223" data-region="3" class="hide-option">Martin &amp; Frost - EH15 3HR Edinburgh</option>
-        <option value="291226" data-region="2" class="">Barker &amp; Stonehouse Ltd - TS17 7BG Stockton On Tees</option>
-        <option value="298868" data-region="2" class="">HSL TRURO - TR4 8HS Truro Cornwall</option>
-        <option value="298848" data-region="3" class="hide-option">HSL Edinburgh - EH8 8HH Edinburgh</option>
-        <option value="298829" data-region="2" class="">HSL Henley-In-Arden - B95 5BA Henley In Arden</option>
-        <option value="291394" data-region="2" class="">Hopewells Ltd - NG1 3JR Nottingham</option>
-        <option value="292000" data-region="2" class="">Arighi Bianchi - SK10 1LH Macclesfield</option>
-        <option value="298839" data-region="2" class="">HSL Nottingham - NG9 3AJ Nottingham</option>
-        <option value="294242" data-region="2" class="">Potburys - EX10 8LN Sidmouth</option>
-        <option value="298858" data-region="2" class="">HSL PLYMOUTH - PL7 4JN Plymouth</option>
-        <option value="291218" data-region="3" class="hide-option">Buicks Furniture - DD10 9EB Montrose</option>
-        <option value="297210" data-region="2" class="">La Casa Room Interiors - JE3 4FN St John</option>
-        <option value="292114" data-region="2" class="">Taskers of Accrington - BB5 6DR Accrington</option>
-        <option value="298856" data-region="2" class="">HSL PETERBOROUGH - PE2 7BX Shrewsbury Ave Peterborough</option>
-        <option value="292047" data-region="2" class="">Lucas Furniture - HP19 8RE Aylesbury</option>
-        <option value="293197" data-region="2" class="">Lee Longlands Ltd - GL53 7NE Cheltenham</option>
-        <option value="291249" data-region="2" class="">A J Millichap - IM8 1AQ Isle Of Man</option>
-        <option value="294300" data-region="2" class="">Calverts - TA1 1PD Taunton</option>
-        <option value="298846" data-region="2" class="">HSL Hastings - TN38 0DX St Leonards On Sea</option>
-        <option value="294443" data-region="2" class="">Julian Foye - PL25 3HQ St Austell</option>
-        <option value="296009" data-region="2" class="">Clarkes - ME14 2RF Maidstone</option>
-        <option value="291262" data-region="2" class="">Doorway to Value - PR6 7HH Chorley</option>
-        <option value="293203" data-region="2" class="">Gordon Busbridge Ltd. - TN37 6NG St Leonards On Sea</option>
-        <option value="298827" data-region="2" class="">HSL Farnborough - GU14 7PG Farnborough</option>
-        <option value="293208" data-region="2" class="">Solent Beds and Furniture - PO36 9PL Sandown</option>
-        <option value="297257" data-region="2" class="">Park Furnishers - BS3 4AZ Bedminster Bristol</option>
-        <option value="293209" data-region="2" class="">Solent Beds and Furniture - PO30 1AR Newport</option>
-        <option value="297214" data-region="2" class="">Carters Furniture Centre Ltd - DY10 1AQ Kidderminster</option>
-        <option value="291267" data-region="2" class="">Barker &amp; Stonehouse - HU3 4SE Hull</option>
-        <option value="293226" data-region="2" class="">John Doe of Diss - IP22 4DA Diss</option>
-        <option value="296242" data-region="2" class="">Fenwick Ltd - CO1 1PN Colchester</option>
-        <option value="292052" data-region="2" class="">Paul Adams Furniture - HU2 8LA Hull</option>
-        <option value="298841" data-region="2" class="">HSL Oxford - OX2 0PB Oxford</option>
-        <option value="292281" data-region="2" class="">Hatfields Home Furnishers - CO3 0LA Colchester</option>
-        <option value="298842" data-region="2" class="">HSL Bournemouth/Poole - BH12 1DA Poole</option>
-        <option value="296150" data-region="2" class="">Manns of Cranleigh - GU6 8AY Cranleigh</option>
-        <option value="291270" data-region="2" class="">E.C. Hollywell Ltd. - SY11 1QE Oswestry</option>
-        <option value="296176" data-region="2" class="">Bradbeers - SO30 2QY Southampton</option>
-        <option value="298857" data-region="2" class="">HSL ROMFORD - RM11 1PZ Roneo Corner  Romford Essex</option>
-        <option value="298843" data-region="2" class="">HSL Rayleigh - SS6 7LF Southend On Sea</option>
-        <option value="298845" data-region="2" class="">HSL Southampton - SO30 4FN Southampton</option>
-        <option value="291289" data-region="2" class="">Barker &amp; Stonehouse Ltd - HG5 8PY Knaresborough</option>
-        <option value="292276" data-region="2" class="">Cousins Furniture Stores Ltd - SY1 3LD Shrewsbury</option>
-        <option value="296269" data-region="2" class="">Morleys (Bexleyheath) Ltd - DA6 7JN Bexleyheath</option>
-        <option value="296183" data-region="2" class="">Dansk International - SS7 3NZ Rayleigh</option>
-        <option value="291333" data-region="2" class="">Barker &amp; Stonehouse Ltd - NE11 9YG Gateshead</option>
-        <option value="296191" data-region="2" class="">Collingwood Batchellor Ltd - BN11 3HG Worthing</option>
-        <option value="292002" data-region="2" class="">Peter Green - SO53 4DG Eastleigh</option>
-        <option value="298850" data-region="2" class="">HSL BLACKPOOL - FY3 7AT Blackpool</option>
-        <option value="298851" data-region="2" class="">HSL HULL - HU6 7PL Hull  East Yorkshire</option>
-        <option value="292016" data-region="2" class="">Stone Dam Mills Ltd. - HX1 1SG Halifax</option>
-        <option value="296193" data-region="2" class="">Lenleys - CT2 7EL Canterbury</option>
-        <option value="292053" data-region="2" class="">Christopher Pratts - LS2 7QN Leeds</option>
-        <option value="296241" data-region="2" class="">Fenwick Ltd - CT1 2TB Canterbury</option>
-        <option value="298852" data-region="2" class="">HSL LIVERPOOL - L9 5AW Liverpool Merseyside</option>
-        <option value="292325" data-region="2" class="">Lee Longlands Ltd - B15 1AZ Birmingham</option>
-        <option value="298853" data-region="2" class="">HSL MAIDSTONE - ME15 6RQ Farleigh Hill  Tovil  Maidstone</option>
-        <option value="296206" data-region="2" class="">Material Things - PO6 1RU Portsmouth</option>
-        <option value="292152" data-region="2" class="">Cookes Furniture (B/Ham) - B23 5PN Birmingham</option>
-        <option value="292233" data-region="2" class="">Webb House Furnishers - CW5 5ST Nantwich</option>
-        <option value="296211" data-region="2" class="">Gerald Lukehurst - ME10 3HH Sittingbourne</option>
-        <option value="292171" data-region="2" class="">Housing Units Ltd - M35 9BA Manchester</option>
-        <option value="292236" data-region="2" class="">Vale Furnishers Ltd - GU12 5AS Aldershot</option>
-        <option value="296264" data-region="2" class="">Barker &amp; Stonehouse Ltd - GU1 1DL Guildford</option>
-        <option value="292228" data-region="2" class="">Insitu - WR1 2NA Worcester</option>
-        <option value="292265" data-region="2" class="">Russell Dean - HX7 5LN Mytholmroyd  Hebden Bridge</option>
-        <option value="297062" data-region="2" class="">Annetts Furniture World - HR4 0SQ Hereford</option>
-        <option value="294130" data-region="2" class="">Daniels - SL4 1DP Windsor</option>
-        <option value="293108" data-region="2" class="">Easy Chair &amp; Sofa Company Ltd. - CM23 3YT Bishops Stortford</option>
-        <option value="294202" data-region="2" class="">Cookes Furniture (C/Chu) - BH23 3PX Christchurch</option>
-        <option value="292140" data-region="2" class="">The Home Company - BD23 1NJ Skipton</option>
-        <option value="293111" data-region="2" class="">Reeds Homestore - PE38 9DS Downham Market</option>
-        <option value="292007" data-region="2" class="">Ponsford - S2 4HS Sheffield</option>
-        <option value="298836" data-region="2" class="">HSL Warrington - WA2 8RF Warrington</option>
-        <option value="298844" data-region="2" class="">HSL Rotherham - S66 2TP Rotherham</option>
-        <option value="292237" data-region="2" class="">Vale Furnishers Ltd - GU9 7SW Farnham</option>
-        <option value="293288" data-region="2" class="">Collingwood Batchellor Ltd - RH6 7QE Horley</option>
-        <option value="298830" data-region="2" class="">HSL Henley-On-Thames - RG9 1AG Henley On Thames</option>
-        <option value="298833" data-region="2" class="">HSL Newcastle-Upon-Tyne - NE21 5ST Newcastle Upon Tyne</option>
-        <option value="293664" data-region="2" class="">Bentalls - KT1 1TS Kingston Upon Thames</option>
-        <option value="298831" data-region="2" class="">HSL Letchworth - SG6 1LJ Letchworth</option>
-        <option value="294045" data-region="2" class="">Gloucester Furniture Centre - GL1 1TX Gloucester</option>
-        <option value="291811" data-region="2" class="">Barker &amp; Stonehouse Ltd - NE1 4PQ Newcastle Upon Tyne</option>
-        <option value="298832" data-region="2" class="">HSL Milton Keynes - MK12 6HS Milton Keynes</option>
-        <option value="291900" data-region="2" class="">Barker &amp; Stonehouse Ltd - DL1 5RD Darlington</option>
-        <option value="293173" data-region="2" class="">Downtown - NG32 2AB Grantham</option>
-        <option value="298834" data-region="2" class="">HSL Stockport - SK1 2BU Stockport</option>
-        <option value="293082" data-region="2" class="">Langton Furnishers - LE1 3AN Leicester</option>
-        <option value="292149" data-region="2" class="">Rodgers of York Ltd. - YO32 9JR York</option>
-        <option value="293056" data-region="2" class="">Roomes Furniture &amp; Interiors - RM14 2UB Upminster</option>
-        <option value="291326" data-region="2" class="">Ward Brothers - DN1 3EY Doncaster</option>
-        <option value="291327" data-region="2" class="">Stollers - LA14 5UN Barrow In Furness</option>
-        <option value="293031" data-region="2" class="">Hatters Limited - MK41 0DX Bedford</option>
-        <option value="298837" data-region="2" class="">HSL York - YO30 4WZ York</option>
-        <option value="292038" data-region="2" class="">Barker &amp; Stonehouse Ltd - WF17 9AD Birstall</option>
-        <option value="292026" data-region="2" class="">Browns York - YO1 2QT York</option>
-        <option value="292020" data-region="2" class="">Stokers Fine Furnishings - PR9 0PG Southport</option>
-        <option value="292058" data-region="2" class="">Hunters - DE1 1SY Derby</option>
-        <option value="292352" data-region="2" class="">Beadle &amp; Crome - RG1 7LA Reading</option>
-        <option value="293093" data-region="2" class="">Anglia Recliners Ltd. - IP12 1RJ Melton</option>
-        <option value="293017" data-region="2" class="">Peter Adams - HA8 7AR Edgware</option>
-        <option value="294074" data-region="2" class="">Thomas Hearn Ltd. - CV8 1HL Kenilworth</option>
-        <option value="293095" data-region="2" class="">Peterborough Recliner Centre Ltd - PE4 6BX Werrington</option>
-        <option value="296054" data-region="2" class="">Wells Interiors - TN1 1XF Tunbridge Wells</option>
-        <option value="294263" data-region="2" class="">Padfields - EX31 1TD Barnstaple</option>
-        <option value="292080" data-region="2" class="">Pickles Furnishers - BD18 3EA Shipley</option>
-        <option value="297072" data-region="4" class="hide-option">DC Williams &amp; Son - LL77 7DU Llangefni</option>
-        <option value="293099" data-region="2" class="">Lees of Grimsby (Furnishers) Ltd. - DN31 1BJ Grimsby</option>
-        <option value="292087" data-region="2" class="">Websters - HD6 1AQ Brighouse</option>
-        <option value="294346" data-region="4" class="hide-option">Hafren Furnishers Ltd. - SY18 6ES Llanidloes</option>
-        <option value="293113" data-region="2" class="">Bakers &amp; Larners - NR25 6BN Holt  Norfolk</option>
-        <option value="294246" data-region="4" class="hide-option">Leekes Ltd - SA14 6RB Cross Hands</option>
-        <option value="292088" data-region="2" class="">W &amp; T Nettletons - WF4 6DW Wakefield</option>
-        <option value="294470" data-region="4" class="hide-option">Arthur Llewellyn Jenkins - SA4 9WF Gorseinon</option>
-        <option value="293117" data-region="2" class="">Jones The Furnishers Ltd. - NN1 4AU Northampton</option>
-        <option value="294245" data-region="4" class="hide-option">Leekes Ltd - CF72 8XU Pontyclun</option>
-        <option value="292316" data-region="2" class="">Collingwood Batchellor Ltd - RH12 1QN Horsham</option>
-        <option value="293144" data-region="2" class="">Glasswells Ltd. - IP2 0QA Ipswich</option>
-        <option value="292321" data-region="2" class="">Beadle &amp; Crome Ltd. - HP11 2DJ High Wycombe</option>
-        <option value="297076" data-region="4" class="hide-option">George Street Furnishers - NP20 1EN Newport</option>
-        <option value="293148" data-region="2" class="">Reeds Homestore - CB6 3NX Witchford  Ely</option>
-        <option value="293083" data-region="2" class="">Russell Francis - LE16 7DX Market Harborough</option>
-        <option value="297131" data-region="4" class="hide-option">George Street Furnishers - CF23 9AE Cardiff</option>
-        <option value="294285" data-region="4" class="hide-option">Arthur Llewellyn Jenkins - CF72 8PN Llantrisant</option>
-        <option value="298823" data-region="4" class="hide-option">HSL Cardiff - CF23 9XE Cardiff</option>
-        <option value="293180" data-region="2" class="">Jarrold &amp; Sons Ltd - NR2 1JF Norwich</option>
-        <option value="293151" data-region="2" class="">Leekes Ltd - WV14 8LB Bilston</option>
-        <option value="298855" data-region="4" class="hide-option">HSL SWANSEA - SA7 9FB Llansamlet  Swansea</option>
-        <option value="293174" data-region="2" class="">Downtown - PE21 7NL Boston</option>
-        <option value="298838" data-region="2" class="">HSL Norwich - NR6 6EP Norwich</option>
-        <option value="293196" data-region="2" class="">Lee Longlands Ltd - CV32 5DY Leamington Spa</option>
-</select>
-</body>
+        dealerList.sort();
+
+        for (i = 0; i < lb.length; i++) {
+          lb.options[i].text = dealerList[i];
+          lb.options[i].value = dealerList[i];
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <!-- <a href="javascript:sortList()">sort</a> -->
+
+    <select
+      class="form-control"
+      id="warrenty_select_dealer"
+      data-tracking="false"
+      aria-invalid="false"
+    >
+      <option value="" selected="" disabled="" hidden="" class="hide-option">
+        Choose from list
+      </option>
+      <option value="Online1UK" data-region="0" class="hide-option">
+        Online - UK
+      </option>
+      <option value="292189" data-region="1" class="hide-option">
+        Keens Furniture - BT5 4GS Belfast
+      </option>
+      <option value="297137" data-region="2" class="">
+        Haskins Furniture - BA4 5AX Shepton Mallet
+      </option>
+      <option value="295036" data-region="1" class="hide-option">
+        CFC Interiors Ltd - BT80 8HT Cookstown Co Tyrone
+      </option>
+      <option value="297165" data-region="2" class="">
+        Julian Foye - TR1 1SB Truro
+      </option>
+      <option value="294217" data-region="2" class="">
+        David Phipp House Furnishers - BH22 9AL Ferndown
+      </option>
+      <option value="295019" data-region="1" class="hide-option">
+        CFC Interiors Ltd - BT47 3PA Londonderry
+      </option>
+      <option value="297166" data-region="2" class="">
+        Julian Foye - PL24 6DA Wadebridge
+      </option>
+      <option value="294226" data-region="2" class="">
+        T.R. Hayes Limited - BA1 5BX Walcot
+      </option>
+      <option value="292192" data-region="1" class="hide-option">
+        CFC Interiors Ltd - BT37 9UL Newtownabbey
+      </option>
+      <option value="294234" data-region="2" class="">
+        Scope Furnishing - GY3 5XJ Guernsey
+      </option>
+      <option value="298878" data-region="1" class="hide-option">
+        HSL Newtownabbey - BT36 7LS Newtownabbey
+      </option>
+      <option value="294235" data-region="2" class="">
+        Leekes Ltd - SN12 8AG Melksham
+      </option>
+      <option value="291162" data-region="3" class="hide-option">
+        Gillies - AB10 6DA Aberdeen
+      </option>
+      <option value="294237" data-region="2" class="">
+        Charltons - TQ2 5UN Torquay
+      </option>
+      <option value="297167" data-region="2" class="">
+        Julian Foye - TR27 4DY Hayle
+      </option>
+      <option value="298840" data-region="2" class="">
+        HSL Orpington - BR6 0JW Orpington
+      </option>
+      <option value="297177" data-region="2" class="">
+        Woods (Dorchester) Ltd. - DT1 1HN Dorchester
+      </option>
+      <option value="291219" data-region="3" class="hide-option">
+        Archibalds Furniture - AB10 6LQ Aberdeen
+      </option>
+      <option value="297178" data-region="2" class="">
+        Southons - SP1 2DE Salisbury
+      </option>
+      <option value="291220" data-region="3" class="hide-option">
+        Sterling Furniture - AB23 8EF Aberdeen
+      </option>
+      <option value="297187" data-region="2" class="">
+        Manor Furniture Centre Ltd - SN2 0QE Swindon
+      </option>
+      <option value="291172" data-region="3" class="hide-option">
+        Sterling Furniture - FK13 6NS Tillicoutry
+      </option>
+      <option value="297207" data-region="2" class="">
+        S H Skidmore &amp; Sons Limited - BS22 6HE Weston Super Mare
+      </option>
+      <option value="291252" data-region="3" class="hide-option">
+        Gillies - IV1 1NA Inverness
+      </option>
+      <option value="294120" data-region="2" class="">
+        Collingwood Batchellor Ltd - GU27 2LA Haslemere
+      </option>
+      <option value="292239" data-region="2" class="">
+        Reynolds Furniture Store - PO21 1RR Bognor Regis
+      </option>
+      <option value="292335" data-region="2" class="">
+        Fishpools Limited - EN8 7AL Waltham Cross
+      </option>
+      <option value="291222" data-region="3" class="hide-option">
+        Sterling Furniture - IV3 8EX Inverness
+      </option>
+      <option value="293229" data-region="2" class="">
+        Back in Action - HP6 6AA Amersham
+      </option>
+      <option value="291266" data-region="3" class="hide-option">
+        Muddy Bay - ZE1 0NP Shetland
+      </option>
+      <option value="293243" data-region="2" class="">
+        Back in Action - BS1 5SH Bristol
+      </option>
+      <option value="296028" data-region="2" class="">
+        Gordon Busbridge Ltd. - BN21 3PD Eastbourne
+      </option>
+      <option value="294092" data-region="2" class="">
+        Camp Hopson - RG14 1DN Newbury
+      </option>
+      <option value="294073" data-region="2" class="">
+        Midfurn Furniture - B49 6HW Alcester
+      </option>
+      <option value="293272" data-region="2" class="">
+        Lee Longlands Ltd - OX14 1SD Abingdon
+      </option>
+      <option value="291224" data-region="3" class="hide-option">
+        Sterling Furniture - G71 5PR Uddingston
+      </option>
+      <option value="298860" data-region="2" class="">
+        HSL BRISTOL - BS10 6PZ Westbury On Trym Bristol
+      </option>
+      <option value="291188" data-region="3" class="hide-option">
+        Forrest Furnishing Ltd - G14 0AL Glasgow
+      </option>
+      <option value="298825" data-region="2" class="">
+        HSL Caterham-on-the-Hill - CR3 5PE Caterham On The Hill
+      </option>
+      <option value="298861" data-region="2" class="">
+        HSL STOCKTON - TS18 2NH Portrack Lane Stockton On Tees
+      </option>
+      <option value="298826" data-region="2" class="">
+        HSL Exeter - EX2 8NW Exeter
+      </option>
+      <option value="291207" data-region="3" class="hide-option">
+        Sterling Furniture - G32 8XG Glasgow
+      </option>
+      <option value="298862" data-region="2" class="">
+        HSL SWINDON - SN3 4NS Hobley Drive Swindon
+      </option>
+      <option value="298835" data-region="2" class="">
+        HSL Tolworth - KT6 7AZ Tolworth
+      </option>
+      <option value="298828" data-region="3" class="hide-option">
+        HSL Glasgow - G13 2TG Glasgow
+      </option>
+      <option value="292253" data-region="2" class="">
+        Glasswells Ltd. - IP33 3TU Bury St Edmunds
+      </option>
+      <option value="298863" data-region="2" class="">
+        HSL CHESTER - CH3 5AF Chester Cheshiire
+      </option>
+      <option value="291177" data-region="3" class="hide-option">
+        Maitlands - AB43 9ER Fraserburgh
+      </option>
+      <option value="296055" data-region="2" class="">
+        Bennett &amp; Brown - DA12 1AS Gravesend
+      </option>
+      <option value="298864" data-region="2" class="">
+        HSL COVENTRY - CV3 2SB Warwickshire Shopping Park Coventry
+      </option>
+      <option value="296102" data-region="2" class="">
+        Barker &amp; Stonehouse Ltd - BN3 7EX Hove
+      </option>
+      <option value="298865" data-region="2" class="">
+        HSL IPSWICH - IP3 8AF Ipswich Suffolk
+      </option>
+      <option value="296121" data-region="2" class="">
+        Back in Action - SL7 2NH Marlow
+      </option>
+      <option value="298821" data-region="2" class="">
+        HSL Bolton - BL1 2LS Bolton
+      </option>
+      <option value="291163" data-region="3" class="hide-option">
+        Gillies - PH1 5JR Perth
+      </option>
+      <option value="298822" data-region="2" class="">
+        HSL Brighton &amp; Hove - BN3 7BA Brighton
+      </option>
+      <option value="298866" data-region="2" class="">
+        HSL LICHFIELD - WS13 6UY Eastern Ave Lichfield Staff
+      </option>
+      <option value="291178" data-region="3" class="hide-option">
+        Anderson &amp; England - IV30 1QB Elgin
+      </option>
+      <option value="298824" data-region="2" class="">
+        HSL Cheltenham - GL51 9RR Chelteham
+      </option>
+      <option value="291057" data-region="3" class="hide-option">
+        Thomsons World of Furniture - KY11 8PQ Dunfermline
+      </option>
+      <option value="298859" data-region="2" class="">
+        HSL SHREWSBURY - SY1 4NU Arlington Way Shrewsbury
+      </option>
+      <option value="292286" data-region="2" class="">
+        Collingwood Batchellor - RH19 1EJ East Grinstead
+      </option>
+      <option value="291227" data-region="3" class="hide-option">
+        Sterling Furniture - DD2 4SR Dundee
+      </option>
+      <option value="298867" data-region="2" class="">
+        HSL TAUNTON - TA1 5NF Taunton Somerset
+      </option>
+      <option value="291128" data-region="2" class="">
+        Vaseys - CA1 1TF Carlisle
+      </option>
+      <option value="293005" data-region="2" class="">
+        Brentham Furnishers - W5 1RH London
+      </option>
+      <option value="291489" data-region="3" class="hide-option">
+        Gillies - DD5 2AJ Dundee
+      </option>
+      <option value="298869" data-region="2" class="">
+        HSL WELLINGBOROUGH - NN8 2DP Wellingborough Northamptonshire
+      </option>
+      <option value="291190" data-region="2" class="">
+        Barker &amp; Stonehouse Ltd - SW11 3RD London
+      </option>
+      <option value="298870" data-region="2" class="">
+        HSL BATH - BA2 2RX Upper Bloomfield Road Bath
+      </option>
+      <option value="291109" data-region="3" class="hide-option">
+        Barbours - DG1 2AL Dumfries
+      </option>
+      <option value="298871" data-region="2" class="">
+        HSL BIRMINGHAM - B17 8DJ Edgbaston Birmingham
+      </option>
+      <option value="293230" data-region="2" class="">
+        Back in Action - W1U 8LT London
+      </option>
+      <option value="298872" data-region="2" class="">
+        HSL DEWSBURY - WF13 2DU Dewsbury
+      </option>
+      <option value="299900" data-region="2" class="">
+        Stressless® Brand Store - W1T 4TF London
+      </option>
+      <option value="291051" data-region="3" class="hide-option">
+        G.O. Fairbairn Ltd. - TD15 1DX Berwick Upon Tweed
+      </option>
+      <option value="293215" data-region="2" class="">
+        Back2 International Ltd - W1U 2RN London
+      </option>
+      <option value="298849" data-region="3" class="hide-option">
+        HSL BATHGATE - EH48 2AG Bathgate West Lothian
+      </option>
+      <option value="298875" data-region="2" class="">
+        HSL LEEDS - LS20 8LZ White Cross Guiseley
+      </option>
+      <option value="291098" data-region="3" class="hide-option">
+        Hunter Furnishings - KA8 9DN Ayr
+      </option>
+      <option value="298877" data-region="2" class="">
+        HSL LINCOLN - LN5 8QJ Lincoln
+      </option>
+      <option value="291213" data-region="2" class="">
+        Barkers Furnishing - DL7 8YR Northallerton
+      </option>
+      <option value="298854" data-region="2" class="">
+        HSL NEWCASTLE-UNDER-LYME - ST5 9ED Newcastle Under Lyme
+      </option>
+      <option value="297268" data-region="2" class="">
+        Stowfords - PL21 0SZ Ivybridge
+      </option>
+      <option value="291148" data-region="3" class="hide-option">
+        Richard F Mackay Ltd. - EH11 2SG Edinburgh
+      </option>
+      <option value="292277" data-region="2" class="">
+        Cousins Furniture Stores Ltd - ST5 2BS Newcastle Under Lyme
+      </option>
+      <option value="291223" data-region="3" class="hide-option">
+        Martin &amp; Frost - EH15 3HR Edinburgh
+      </option>
+      <option value="291226" data-region="2" class="">
+        Barker &amp; Stonehouse Ltd - TS17 7BG Stockton On Tees
+      </option>
+      <option value="298868" data-region="2" class="">
+        HSL TRURO - TR4 8HS Truro Cornwall
+      </option>
+      <option value="298848" data-region="3" class="hide-option">
+        HSL Edinburgh - EH8 8HH Edinburgh
+      </option>
+      <option value="298829" data-region="2" class="">
+        HSL Henley-In-Arden - B95 5BA Henley In Arden
+      </option>
+      <option value="291394" data-region="2" class="">
+        Hopewells Ltd - NG1 3JR Nottingham
+      </option>
+      <option value="292000" data-region="2" class="">
+        Arighi Bianchi - SK10 1LH Macclesfield
+      </option>
+      <option value="298839" data-region="2" class="">
+        HSL Nottingham - NG9 3AJ Nottingham
+      </option>
+      <option value="294242" data-region="2" class="">
+        Potburys - EX10 8LN Sidmouth
+      </option>
+      <option value="298858" data-region="2" class="">
+        HSL PLYMOUTH - PL7 4JN Plymouth
+      </option>
+      <option value="291218" data-region="3" class="hide-option">
+        Buicks Furniture - DD10 9EB Montrose
+      </option>
+      <option value="297210" data-region="2" class="">
+        La Casa Room Interiors - JE3 4FN St John
+      </option>
+      <option value="292114" data-region="2" class="">
+        Taskers of Accrington - BB5 6DR Accrington
+      </option>
+      <option value="298856" data-region="2" class="">
+        HSL PETERBOROUGH - PE2 7BX Shrewsbury Ave Peterborough
+      </option>
+      <option value="292047" data-region="2" class="">
+        Lucas Furniture - HP19 8RE Aylesbury
+      </option>
+      <option value="293197" data-region="2" class="">
+        Lee Longlands Ltd - GL53 7NE Cheltenham
+      </option>
+      <option value="291249" data-region="2" class="">
+        A J Millichap - IM8 1AQ Isle Of Man
+      </option>
+      <option value="294300" data-region="2" class="">
+        Calverts - TA1 1PD Taunton
+      </option>
+      <option value="298846" data-region="2" class="">
+        HSL Hastings - TN38 0DX St Leonards On Sea
+      </option>
+      <option value="294443" data-region="2" class="">
+        Julian Foye - PL25 3HQ St Austell
+      </option>
+      <option value="296009" data-region="2" class="">
+        Clarkes - ME14 2RF Maidstone
+      </option>
+      <option value="291262" data-region="2" class="">
+        Doorway to Value - PR6 7HH Chorley
+      </option>
+      <option value="293203" data-region="2" class="">
+        Gordon Busbridge Ltd. - TN37 6NG St Leonards On Sea
+      </option>
+      <option value="298827" data-region="2" class="">
+        HSL Farnborough - GU14 7PG Farnborough
+      </option>
+      <option value="293208" data-region="2" class="">
+        Solent Beds and Furniture - PO36 9PL Sandown
+      </option>
+      <option value="297257" data-region="2" class="">
+        Park Furnishers - BS3 4AZ Bedminster Bristol
+      </option>
+      <option value="293209" data-region="2" class="">
+        Solent Beds and Furniture - PO30 1AR Newport
+      </option>
+      <option value="297214" data-region="2" class="">
+        Carters Furniture Centre Ltd - DY10 1AQ Kidderminster
+      </option>
+      <option value="291267" data-region="2" class="">
+        Barker &amp; Stonehouse - HU3 4SE Hull
+      </option>
+      <option value="293226" data-region="2" class="">
+        John Doe of Diss - IP22 4DA Diss
+      </option>
+      <option value="296242" data-region="2" class="">
+        Fenwick Ltd - CO1 1PN Colchester
+      </option>
+      <option value="292052" data-region="2" class="">
+        Paul Adams Furniture - HU2 8LA Hull
+      </option>
+      <option value="298841" data-region="2" class="">
+        HSL Oxford - OX2 0PB Oxford
+      </option>
+      <option value="292281" data-region="2" class="">
+        Hatfields Home Furnishers - CO3 0LA Colchester
+      </option>
+      <option value="298842" data-region="2" class="">
+        HSL Bournemouth/Poole - BH12 1DA Poole
+      </option>
+      <option value="296150" data-region="2" class="">
+        Manns of Cranleigh - GU6 8AY Cranleigh
+      </option>
+      <option value="291270" data-region="2" class="">
+        E.C. Hollywell Ltd. - SY11 1QE Oswestry
+      </option>
+      <option value="296176" data-region="2" class="">
+        Bradbeers - SO30 2QY Southampton
+      </option>
+      <option value="298857" data-region="2" class="">
+        HSL ROMFORD - RM11 1PZ Roneo Corner Romford Essex
+      </option>
+      <option value="298843" data-region="2" class="">
+        HSL Rayleigh - SS6 7LF Southend On Sea
+      </option>
+      <option value="298845" data-region="2" class="">
+        HSL Southampton - SO30 4FN Southampton
+      </option>
+      <option value="291289" data-region="2" class="">
+        Barker &amp; Stonehouse Ltd - HG5 8PY Knaresborough
+      </option>
+      <option value="292276" data-region="2" class="">
+        Cousins Furniture Stores Ltd - SY1 3LD Shrewsbury
+      </option>
+      <option value="296269" data-region="2" class="">
+        Morleys (Bexleyheath) Ltd - DA6 7JN Bexleyheath
+      </option>
+      <option value="296183" data-region="2" class="">
+        Dansk International - SS7 3NZ Rayleigh
+      </option>
+      <option value="291333" data-region="2" class="">
+        Barker &amp; Stonehouse Ltd - NE11 9YG Gateshead
+      </option>
+      <option value="296191" data-region="2" class="">
+        Collingwood Batchellor Ltd - BN11 3HG Worthing
+      </option>
+      <option value="292002" data-region="2" class="">
+        Peter Green - SO53 4DG Eastleigh
+      </option>
+      <option value="298850" data-region="2" class="">
+        HSL BLACKPOOL - FY3 7AT Blackpool
+      </option>
+      <option value="298851" data-region="2" class="">
+        HSL HULL - HU6 7PL Hull East Yorkshire
+      </option>
+      <option value="292016" data-region="2" class="">
+        Stone Dam Mills Ltd. - HX1 1SG Halifax
+      </option>
+      <option value="296193" data-region="2" class="">
+        Lenleys - CT2 7EL Canterbury
+      </option>
+      <option value="292053" data-region="2" class="">
+        Christopher Pratts - LS2 7QN Leeds
+      </option>
+      <option value="296241" data-region="2" class="">
+        Fenwick Ltd - CT1 2TB Canterbury
+      </option>
+      <option value="298852" data-region="2" class="">
+        HSL LIVERPOOL - L9 5AW Liverpool Merseyside
+      </option>
+      <option value="292325" data-region="2" class="">
+        Lee Longlands Ltd - B15 1AZ Birmingham
+      </option>
+      <option value="298853" data-region="2" class="">
+        HSL MAIDSTONE - ME15 6RQ Farleigh Hill Tovil Maidstone
+      </option>
+      <option value="296206" data-region="2" class="">
+        Material Things - PO6 1RU Portsmouth
+      </option>
+      <option value="292152" data-region="2" class="">
+        Cookes Furniture (B/Ham) - B23 5PN Birmingham
+      </option>
+      <option value="292233" data-region="2" class="">
+        Webb House Furnishers - CW5 5ST Nantwich
+      </option>
+      <option value="296211" data-region="2" class="">
+        Gerald Lukehurst - ME10 3HH Sittingbourne
+      </option>
+      <option value="292171" data-region="2" class="">
+        Housing Units Ltd - M35 9BA Manchester
+      </option>
+      <option value="292236" data-region="2" class="">
+        Vale Furnishers Ltd - GU12 5AS Aldershot
+      </option>
+      <option value="296264" data-region="2" class="">
+        Barker &amp; Stonehouse Ltd - GU1 1DL Guildford
+      </option>
+      <option value="292228" data-region="2" class="">
+        Insitu - WR1 2NA Worcester
+      </option>
+      <option value="292265" data-region="2" class="">
+        Russell Dean - HX7 5LN Mytholmroyd Hebden Bridge
+      </option>
+      <option value="297062" data-region="2" class="">
+        Annetts Furniture World - HR4 0SQ Hereford
+      </option>
+      <option value="294130" data-region="2" class="">
+        Daniels - SL4 1DP Windsor
+      </option>
+      <option value="293108" data-region="2" class="">
+        Easy Chair &amp; Sofa Company Ltd. - CM23 3YT Bishops Stortford
+      </option>
+      <option value="294202" data-region="2" class="">
+        Cookes Furniture (C/Chu) - BH23 3PX Christchurch
+      </option>
+      <option value="292140" data-region="2" class="">
+        The Home Company - BD23 1NJ Skipton
+      </option>
+      <option value="293111" data-region="2" class="">
+        Reeds Homestore - PE38 9DS Downham Market
+      </option>
+      <option value="292007" data-region="2" class="">
+        Ponsford - S2 4HS Sheffield
+      </option>
+      <option value="298836" data-region="2" class="">
+        HSL Warrington - WA2 8RF Warrington
+      </option>
+      <option value="298844" data-region="2" class="">
+        HSL Rotherham - S66 2TP Rotherham
+      </option>
+      <option value="292237" data-region="2" class="">
+        Vale Furnishers Ltd - GU9 7SW Farnham
+      </option>
+      <option value="293288" data-region="2" class="">
+        Collingwood Batchellor Ltd - RH6 7QE Horley
+      </option>
+      <option value="298830" data-region="2" class="">
+        HSL Henley-On-Thames - RG9 1AG Henley On Thames
+      </option>
+      <option value="298833" data-region="2" class="">
+        HSL Newcastle-Upon-Tyne - NE21 5ST Newcastle Upon Tyne
+      </option>
+      <option value="293664" data-region="2" class="">
+        Bentalls - KT1 1TS Kingston Upon Thames
+      </option>
+      <option value="298831" data-region="2" class="">
+        HSL Letchworth - SG6 1LJ Letchworth
+      </option>
+      <option value="294045" data-region="2" class="">
+        Gloucester Furniture Centre - GL1 1TX Gloucester
+      </option>
+      <option value="291811" data-region="2" class="">
+        Barker &amp; Stonehouse Ltd - NE1 4PQ Newcastle Upon Tyne
+      </option>
+      <option value="298832" data-region="2" class="">
+        HSL Milton Keynes - MK12 6HS Milton Keynes
+      </option>
+      <option value="291900" data-region="2" class="">
+        Barker &amp; Stonehouse Ltd - DL1 5RD Darlington
+      </option>
+      <option value="293173" data-region="2" class="">
+        Downtown - NG32 2AB Grantham
+      </option>
+      <option value="298834" data-region="2" class="">
+        HSL Stockport - SK1 2BU Stockport
+      </option>
+      <option value="293082" data-region="2" class="">
+        Langton Furnishers - LE1 3AN Leicester
+      </option>
+      <option value="292149" data-region="2" class="">
+        Rodgers of York Ltd. - YO32 9JR York
+      </option>
+      <option value="293056" data-region="2" class="">
+        Roomes Furniture &amp; Interiors - RM14 2UB Upminster
+      </option>
+      <option value="291326" data-region="2" class="">
+        Ward Brothers - DN1 3EY Doncaster
+      </option>
+      <option value="291327" data-region="2" class="">
+        Stollers - LA14 5UN Barrow In Furness
+      </option>
+      <option value="293031" data-region="2" class="">
+        Hatters Limited - MK41 0DX Bedford
+      </option>
+      <option value="298837" data-region="2" class="">
+        HSL York - YO30 4WZ York
+      </option>
+      <option value="292038" data-region="2" class="">
+        Barker &amp; Stonehouse Ltd - WF17 9AD Birstall
+      </option>
+      <option value="292026" data-region="2" class="">
+        Browns York - YO1 2QT York
+      </option>
+      <option value="292020" data-region="2" class="">
+        Stokers Fine Furnishings - PR9 0PG Southport
+      </option>
+      <option value="292058" data-region="2" class="">
+        Hunters - DE1 1SY Derby
+      </option>
+      <option value="292352" data-region="2" class="">
+        Beadle &amp; Crome - RG1 7LA Reading
+      </option>
+      <option value="293093" data-region="2" class="">
+        Anglia Recliners Ltd. - IP12 1RJ Melton
+      </option>
+      <option value="293017" data-region="2" class="">
+        Peter Adams - HA8 7AR Edgware
+      </option>
+      <option value="294074" data-region="2" class="">
+        Thomas Hearn Ltd. - CV8 1HL Kenilworth
+      </option>
+      <option value="293095" data-region="2" class="">
+        Peterborough Recliner Centre Ltd - PE4 6BX Werrington
+      </option>
+      <option value="296054" data-region="2" class="">
+        Wells Interiors - TN1 1XF Tunbridge Wells
+      </option>
+      <option value="294263" data-region="2" class="">
+        Padfields - EX31 1TD Barnstaple
+      </option>
+      <option value="292080" data-region="2" class="">
+        Pickles Furnishers - BD18 3EA Shipley
+      </option>
+      <option value="297072" data-region="4" class="hide-option">
+        DC Williams &amp; Son - LL77 7DU Llangefni
+      </option>
+      <option value="293099" data-region="2" class="">
+        Lees of Grimsby (Furnishers) Ltd. - DN31 1BJ Grimsby
+      </option>
+      <option value="292087" data-region="2" class="">
+        Websters - HD6 1AQ Brighouse
+      </option>
+      <option value="294346" data-region="4" class="hide-option">
+        Hafren Furnishers Ltd. - SY18 6ES Llanidloes
+      </option>
+      <option value="293113" data-region="2" class="">
+        Bakers &amp; Larners - NR25 6BN Holt Norfolk
+      </option>
+      <option value="294246" data-region="4" class="hide-option">
+        Leekes Ltd - SA14 6RB Cross Hands
+      </option>
+      <option value="292088" data-region="2" class="">
+        W &amp; T Nettletons - WF4 6DW Wakefield
+      </option>
+      <option value="294470" data-region="4" class="hide-option">
+        Arthur Llewellyn Jenkins - SA4 9WF Gorseinon
+      </option>
+      <option value="293117" data-region="2" class="">
+        Jones The Furnishers Ltd. - NN1 4AU Northampton
+      </option>
+      <option value="294245" data-region="4" class="hide-option">
+        Leekes Ltd - CF72 8XU Pontyclun
+      </option>
+      <option value="292316" data-region="2" class="">
+        Collingwood Batchellor Ltd - RH12 1QN Horsham
+      </option>
+      <option value="293144" data-region="2" class="">
+        Glasswells Ltd. - IP2 0QA Ipswich
+      </option>
+      <option value="292321" data-region="2" class="">
+        Beadle &amp; Crome Ltd. - HP11 2DJ High Wycombe
+      </option>
+      <option value="297076" data-region="4" class="hide-option">
+        George Street Furnishers - NP20 1EN Newport
+      </option>
+      <option value="293148" data-region="2" class="">
+        Reeds Homestore - CB6 3NX Witchford Ely
+      </option>
+      <option value="293083" data-region="2" class="">
+        Russell Francis - LE16 7DX Market Harborough
+      </option>
+      <option value="297131" data-region="4" class="hide-option">
+        George Street Furnishers - CF23 9AE Cardiff
+      </option>
+      <option value="294285" data-region="4" class="hide-option">
+        Arthur Llewellyn Jenkins - CF72 8PN Llantrisant
+      </option>
+      <option value="298823" data-region="4" class="hide-option">
+        HSL Cardiff - CF23 9XE Cardiff
+      </option>
+      <option value="293180" data-region="2" class="">
+        Jarrold &amp; Sons Ltd - NR2 1JF Norwich
+      </option>
+      <option value="293151" data-region="2" class="">
+        Leekes Ltd - WV14 8LB Bilston
+      </option>
+      <option value="298855" data-region="4" class="hide-option">
+        HSL SWANSEA - SA7 9FB Llansamlet Swansea
+      </option>
+      <option value="293174" data-region="2" class="">
+        Downtown - PE21 7NL Boston
+      </option>
+      <option value="298838" data-region="2" class="">
+        HSL Norwich - NR6 6EP Norwich
+      </option>
+      <option value="293196" data-region="2" class="">
+        Lee Longlands Ltd - CV32 5DY Leamington Spa
+      </option>
+    </select>
+  </body>
 </html>
-
-
-
-
